@@ -1,0 +1,1437 @@
+/* ==========================================================================
+   STYLE.CSS  —  the look of the whole site
+   ==========================================================================
+
+   WHAT THIS FILE DOES
+   CSS controls how the page LOOKS (colors, sizes, spacing, animation).
+   The words and structure live in index.html. This file decides how each
+   piece of that HTML is drawn.
+
+   HOW TO READ A CSS RULE
+       .some-class {          <- "some-class" is a name from index.html
+         color: red;          <- a setting: property: value;
+         font-size: 1rem;     <- 1rem = the normal text size
+       }
+   A name with a dot in front (.section-label) matches HTML elements that
+   have class="section-label". A name with a # (#about) matches the one
+   element with id="about". A plain name (h2, body) matches that HTML tag.
+
+   QUICK EDITS (all in section 1 below)
+     - Change the accent color ......... --color-accent and --color-accent-light
+     - Change the stone colors ......... --color-wall, --color-stone-panel, --color-dark-stone
+     - Change the fonts ................ --font-headings, --font-labels, --font-body
+     - Change the page width ........... --page-max-width
+
+   TABLE OF CONTENTS
+     1.  Settings (colors, fonts, spacing, shadows, textures)
+     2.  Page basics (the stone wall, links, images)
+     3.  Dark stone (shared look for nav, labels, footer, plates)
+     4.  Text styles (headings, engraved text, tags, buttons, dates)
+     5.  Page layout (container, sections, stone panels, dividers)
+     6.  Navigation bar
+     7.  Hero (the top of the page)
+     8.  About
+     9.  Education
+    10.  Leadership
+    11.  Experience (timeline)
+    12.  Technical skills
+    13.  Projects
+    14.  Activities
+    15.  Photo frames
+    16.  Footer
+    17.  Case study pages
+    18.  Slide-in animations
+    19.  Tablet and phone layouts
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. SETTINGS
+   Variables are named settings you can reuse. "--color-accent" is defined
+   once here, and every place that says var(--color-accent) uses it.
+   Change a value here and it updates everywhere.
+   ========================================================================== */
+:root {
+
+  /* ----- COLORS: stone ----- */
+  --color-wall:        #bdbaae;  /* the big stone wall behind everything */
+  --color-stone-panel: #dedacd;  /* lighter stone panels that hold your content */
+  --color-dark-stone:  #5a5b54;  /* dark stone: nav bar, labels, footer, stat plates */
+  --color-outline:     #141510;  /* near-black: borders and the darkest shadows */
+
+  /* ----- COLORS: text ----- */
+  --color-text:               #14150f;  /* main text on light stone */
+  --color-text-soft:          #2a2c25;  /* paragraphs and secondary text on light stone */
+  --color-text-on-dark:       #ecebe4;  /* main text on dark stone */
+  --color-text-soft-on-dark:  #c4c2bb;  /* secondary text on dark stone */
+
+  /* ----- COLORS: accent (the dark red) ----- */
+  --color-accent:        #6e1b1b;  /* dark red: buttons, tags, highlights on light stone */
+  --color-accent-light:  #d9a29c;  /* soft red tint, used for small labels on dark stone */
+
+  /* ----- LINES: thin borders and dividers on light stone -----
+     rgba(red, green, blue, see-through) : the last number is how solid the
+     line is (1 = solid, 0 = invisible). */
+  --line-faint:   rgba(20, 21, 16, 0.4);
+  --line-medium:  rgba(20, 21, 16, 0.5);
+  --line-strong:  rgba(20, 21, 16, 0.7);
+  --line-on-dark: rgba(236, 235, 228, 0.22);   /* thin lines on dark stone */
+  --groove-highlight: rgba(255, 255, 255, 0.55); /* light edge under a carved line */
+
+  /* ----- COLORS: light fills that make a box look slightly brighter ----- */
+  --fill-card:   rgba(255, 255, 255, 0.22);  /* leadership card, role boxes */
+  --fill-block:  rgba(255, 255, 255, 0.28);  /* small blocks, tables, skill groups */
+
+  /* ----- FONTS ----- */
+  --font-headings: 'Archivo', 'Arial Black', sans-serif;      /* big heavy headings */
+  --font-labels:   'IBM Plex Mono', monospace;                /* small stamped labels and numbers */
+  --font-body:     'IBM Plex Sans', sans-serif;               /* normal paragraphs */
+
+  /* ----- SPACING (the number in the name is the size in pixels) ----- */
+  --space-8:  8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-96: 96px;
+
+  /* ----- SIZES ----- */
+  --page-max-width: 1120px;   /* the widest the content is allowed to get */
+  --border-width:   2px;      /* the thick borders (buttons, nav) */
+  --nav-height:     64px;     /* height of the bar at the top */
+
+  /* ----- SHADOWS -----
+     A shadow is: right-offset  down-offset  blur  color.
+     Several shadows separated by commas are stacked.
+     "inset" means the shadow is drawn INSIDE the box. */
+  --edge-bevel:            inset 2px 2px 0 rgba(255, 255, 255, 0.5), inset -2px -3px 3px rgba(0, 0, 0, 0.22);  /* a raised edge catching the light */
+  --shadow-panel-resting:  5px 7px 8px rgba(0, 0, 0, 0.4), 14px 18px 26px rgba(0, 0, 0, 0.36);                /* big panels sitting on the wall */
+  --shadow-panel-lifted:   18px 26px 22px rgba(0, 0, 0, 0.3), 44px 60px 60px rgba(0, 0, 0, 0.3);              /* panel at the start of its slide-in (higher off the wall) */
+  --shadow-table:          3px 5px 6px rgba(0, 0, 0, 0.38), 9px 12px 18px rgba(0, 0, 0, 0.28);                /* tables and the info plate */
+  --shadow-card:           inset 1.5px 1.5px 0 rgba(255, 255, 255, 0.55), inset -1.5px -2px 2px rgba(0, 0, 0, 0.16), 2px 3px 4px rgba(0, 0, 0, 0.28), 6px 9px 12px rgba(0, 0, 0, 0.2);  /* the leadership card */
+  --shadow-small-block:    inset 1px 1px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.12), 1px 2px 3px rgba(0, 0, 0, 0.2);  /* small blocks inside cards */
+  --shadow-dark-plate:     var(--edge-bevel), 3px 5px 6px rgba(0, 0, 0, 0.35);                                /* dark stat plates */
+
+  /* ----- ENGRAVED TEXT -----
+     text-shadow gives lettering a carved-into-stone look.
+     "on-light" = dark text on light stone, "on-dark" = light text on dark stone.
+     "soft" versions are lighter so small text stays sharp. */
+  --engrave-on-light:       0 1px 0 rgba(255, 255, 255, 0.7), 0 -1px 0 rgba(0, 0, 0, 0.3);
+  --engrave-on-light-soft:  0 1px 0 rgba(255, 255, 255, 0.65);
+  --engrave-on-dark:        0 -1px 0 rgba(0, 0, 0, 0.8), 0 1px 0 rgba(255, 255, 255, 0.14);
+  --engrave-on-dark-soft:   0 -1px 0 rgba(0, 0, 0, 0.7);
+
+  /* ----- TEXTURES -----
+     Each one is a picture file in the textures/ folder. Open any of them to
+     read a plain-language description of what it draws. */
+  --texture-rough-stone:      url("textures/rough-stone.svg");        /* bumpy rock surface */
+  --texture-smooth-stone:     url("textures/smooth-stone.svg");       /* gentler, polished surface */
+  --texture-water-stains:     url("textures/water-stains.svg");       /* vertical rain streaks */
+  --texture-wall-joints:      url("textures/wall-joints.svg");        /* seams between big slabs */
+  --texture-air-bubble-pits:  url("textures/air-bubble-pits.svg");    /* tiny round holes */
+  --texture-flecks:           url("textures/aggregate-flecks.svg");   /* tiny dark and light specks */
+  --texture-tone-blotches:    url("textures/tone-blotches.svg");      /* big soft light and dark patches */
+  --texture-cracks:           url("textures/hairline-cracks.svg");    /* thin cracks */
+}
+
+
+/* ==========================================================================
+   2. PAGE BASICS
+   ========================================================================== */
+
+/* Reset: remove the browser's default spacing so we control everything.
+   "box-sizing: border-box" makes a box's width include its padding and border. */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Smooth scrolling when you click a link that jumps to a section */
+html { scroll-behavior: smooth; }
+
+/* THE WALL. The whole page background is built from several layers stacked
+   on top of each other (listed top layer first):
+     1 wall joints   2 cracks   3 water stains   4 air-bubble pits
+     5 flecks        6 tone blotches            7 rough stone (blended in last)
+   background-size and background-position set each layer's tile size and
+   offset (the cracks are shifted so they don't line up with the joints).
+   "multiply" blending darkens the base color with the rough-stone bumps. */
+body {
+  background-color: var(--color-wall);
+  background-image:
+    var(--texture-wall-joints),
+    var(--texture-cracks),
+    var(--texture-water-stains),
+    var(--texture-air-bubble-pits),
+    var(--texture-flecks),
+    var(--texture-tone-blotches),
+    var(--texture-rough-stone);
+  background-size: 960px 640px, 960px 640px, 512px 512px, 512px 512px, 512px 512px, 900px 900px, 512px 512px;
+  background-position: 0 0, 300px 180px, 0 0, 0 0, 0 0, 0 0, 0 0;
+  background-blend-mode: normal, normal, normal, normal, normal, normal, multiply;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;                 /* space between lines of text */
+  overflow-x: hidden;               /* never allow sideways scrolling... */
+  overflow-x: clip;                 /* ...(newer browsers use this version) */
+}
+
+/* Sunlight effect: the wall gets a little darker toward the edges.
+   "position: fixed" keeps it covering the screen; z-index -1 puts it behind content. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;             /* clicks pass straight through it */
+  background: radial-gradient(ellipse at 25% 0%, transparent 35%, rgba(10, 10, 6, 0.28) 100%);
+}
+
+/* Color of text when you highlight it with the mouse */
+::selection { background: var(--color-accent); color: #fff; }
+
+/* Links look like normal text (we style them where they're used) */
+a { color: inherit; text-decoration: none; }
+
+/* Images never overflow their box */
+img { max-width: 100%; display: block; }
+
+/* Lists have no bullets unless a rule adds them */
+ul { list-style: none; }
+
+/* Outline shown when you tab through links with the keyboard (accessibility) */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+.nav a:focus-visible, .nav button:focus-visible {
+  outline-color: var(--color-text-on-dark);   /* the nav is dark, so use a light outline */
+}
+
+/* If someone's device is set to "reduce motion", cut animations to nothing */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+
+/* ==========================================================================
+   3. DARK STONE
+   One shared look for everything that is dark: the nav bar, the small
+   section labels, the hero tag, the footer, the leadership stat plates, the
+   current role box, and the case-study info plate. Layers: air-bubble pits,
+   flecks, then the rough stone blended in over the dark base color.
+   ========================================================================== */
+.nav,
+.section-label,
+.hero-tag,
+.footer,
+.stat-plate,
+.role.is-current,
+.info-plate {
+  background-color: var(--color-dark-stone);
+  background-image: var(--texture-air-bubble-pits), var(--texture-flecks), var(--texture-rough-stone);
+  background-size: 512px 512px, 512px 512px, 512px 512px;
+  background-blend-mode: normal, normal, multiply;
+  color: var(--color-text-on-dark);
+}
+
+
+/* ==========================================================================
+   4. TEXT STYLES
+   ========================================================================== */
+
+/* HEADINGS: h1 is the biggest (page title), h2 is a section title, h3 a
+   sub-title. All three share this heavy uppercase look. */
+h1, h2, h3 {
+  font-family: var(--font-headings);
+  font-weight: 800;
+  letter-spacing: -0.02em;          /* pulls the letters slightly closer */
+  text-transform: uppercase;
+}
+h2 {
+  font-size: clamp(2rem, 5vw, 3.4rem);   /* clamp(smallest, preferred, largest): scales with screen width */
+  line-height: 1;
+  margin-bottom: var(--space-32);
+}
+/* A quieter section title, used by Projects and Activities */
+.heading-small {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  margin-bottom: 20px;
+}
+
+/* SECTION LABEL: the small dark tag above each section title ("02 · EDUCATION") */
+.section-label {
+  display: inline-block;
+  font-family: var(--font-labels);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  margin-bottom: var(--space-16);
+  border-radius: 2px 5px 2px 4px;   /* four corners: top-left, top-right, bottom-right, bottom-left */
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.25), inset -1px -1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* ORGANIZATION LINE: the small line under a heading (school, employer, club).
+   Its exact size changes slightly depending on where it sits (see each section). */
+.org-line {
+  font-family: var(--font-labels);
+}
+
+/* DATE LABEL: small accent-colored dates and years */
+.date-label {
+  font-family: var(--font-labels);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+}
+
+/* TAGS: small outlined chips (skills, coursework, project keywords) */
+.tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: var(--space-16); }
+.tag {
+  font-family: var(--font-labels);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* BULLET LISTS inside the leadership card and the experience timeline */
+.leadership-card ul,
+.timeline-item ul {
+  list-style: square;
+  padding-left: 20px;
+  display: grid;
+  gap: 6px;
+  color: var(--color-text-soft);
+  font-size: 0.93rem;
+}
+.leadership-card ul li::marker,
+.timeline-item ul li::marker { color: var(--color-accent); }   /* the bullet itself */
+
+/* BUTTONS: "View Projects", "Download Résumé" */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-family: var(--font-labels);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border: var(--border-width) solid var(--color-outline);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--color-text);
+  box-shadow: 4px 4px 0 var(--color-outline);        /* a hard offset shadow, no blur */
+  transition: transform 0.1s linear, box-shadow 0.1s linear, background 0.1s linear, color 0.1s linear;
+}
+/* On hover the button "presses in" by moving onto its own shadow */
+.btn:hover {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--color-outline);
+}
+.btn-primary { background: var(--color-accent); color: #fff; }          /* the filled red button */
+.btn-ghost:hover { background: var(--color-outline); color: var(--color-text-on-dark); }  /* the outlined button fills dark on hover */
+
+/* ENGRAVED LETTERING. These lists apply the carved-into-stone text-shadow.
+   Large text gets the full effect; small labels get the soft version so they
+   stay crisp. To remove engraving from something, delete its name from a list. */
+
+/* Dark text carved into light stone (full effect) */
+h1, h2, h3,
+.role:not(.is-current) .role-title { text-shadow: var(--engrave-on-light); }
+
+/* Dark text carved into light stone (soft effect, small labels) */
+h4, h5,
+.facts-label,
+.timeline-item .date-label,
+.leadership-card-header .date-label,
+.project-row .date-label,
+.activity-card .date-label,
+.role:not(.is-current) .role-years,
+.section-divider,
+.step-list strong { text-shadow: var(--engrave-on-light-soft); }
+
+/* Light text carved into dark stone (full effect) */
+.nav-logo,
+.stat-number,
+.role.is-current .role-title { text-shadow: var(--engrave-on-dark); }
+
+/* Light text carved into dark stone (soft effect) */
+.nav-links a,
+.section-label,
+.hero-tag,
+.stat-label,
+.info-label, .info-value,
+.role.is-current .role-years,
+.role.is-current p,
+.footer .container span,
+.placeholder-label { text-shadow: var(--engrave-on-dark-soft); }
+
+
+/* ==========================================================================
+   5. PAGE LAYOUT
+   ========================================================================== */
+
+/* CONTAINER: a centered box that keeps content from getting too wide */
+.container {
+  max-width: var(--page-max-width);
+  margin: 0 auto;                   /* "auto" side margins center the box */
+  padding: 0 var(--space-24);
+}
+
+/* SECTION: each part of the page (About, Education, ...) */
+.section { padding: var(--space-96) 0 var(--space-64); }
+
+/* STONE PANEL: the container inside every section and the hero becomes a
+   slab of lighter stone sitting on the wall. Layers (top first): a soft
+   sheen of light across the face, air-bubble pits, flecks, and the smooth
+   stone surface blended in. The four-value border-radius gives each corner a
+   slightly different curve so the slab looks hand-made.
+   The first "box-shadow" is the raised edge, the others are the soft shadow
+   it casts on the wall (sunlight comes from the upper left). */
+.section > .container,
+.hero > .container {
+  position: relative;
+  width: calc(100% - 32px);
+  max-width: var(--page-max-width);
+  padding: 72px 48px 56px;
+  background-color: var(--color-stone-panel);
+  background-image:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 45%, rgba(0, 0, 0, 0.1)),
+    var(--texture-air-bubble-pits),
+    var(--texture-flecks),
+    var(--texture-smooth-stone);
+  background-size: auto, 512px 512px, 512px 512px, 512px 512px;
+  background-blend-mode: normal, normal, normal, multiply;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px 12px 5px 9px;
+  box-shadow: var(--edge-bevel), var(--shadow-panel-resting);
+}
+/* Give a few panels their own corner shapes so they don't all look identical */
+#about > .container    { border-radius: 9px 5px 12px 6px; }
+#projects > .container { border-radius: 5px 11px 6px 13px; }
+#experience > .container   { border-radius: 12px 6px 9px 4px; }
+
+/* Everything inside a panel sits above the stain and dust layers below */
+.section > .container > *,
+.hero > .container > * { position: relative; z-index: 1; }
+
+/* Water stains running down from the top of each panel, fading out toward
+   the bottom (the "mask" is what creates the fade) */
+.section > .container::after,
+.hero > .container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: var(--texture-water-stains);
+  background-size: 512px 512px;
+  opacity: 0.7;
+  -webkit-mask-image: linear-gradient(to top, #000, transparent 38%);
+  mask-image: linear-gradient(to top, #000, transparent 38%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Dust puff along the bottom edge. It is invisible (opacity 0) until the
+   panel slides in; the animation for it is in section 18. */
+.section > .container::before,
+.hero > .container::before {
+  content: '';
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: -12px;
+  height: 30px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(226, 222, 208, 0.95), transparent 70%);
+  filter: blur(7px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Projects and Activities panels are a little shorter */
+#projects > .container,
+#activities > .container { padding-top: 56px; padding-bottom: 40px; }
+
+/* SECTION DIVIDER: the row of round tie-holes between sections, with a small
+   number in the middle. The holes are drawn with two stretched-out
+   radial gradients (one on each side of the number). */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  font-family: var(--font-labels);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  margin: var(--space-48) 0;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;                           /* each side stretches to fill the space */
+  height: 28px;
+  background-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.55) 0 6px, rgba(255, 255, 255, 0.55) 7px 8.5px, transparent 9.5px);
+  background-size: 56px 28px;
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+/* Small helper: adds blank space above something */
+.spacer { margin-top: 22px; }
+
+
+/* ==========================================================================
+   6. NAVIGATION BAR
+   ========================================================================== */
+.nav {
+  position: fixed;                   /* stays at the top while you scroll */
+  top: 0; left: 0; right: 0;
+  z-index: 100;                      /* sits above everything else */
+  border-bottom: var(--border-width) solid var(--color-outline);
+}
+.nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;    /* logo on the left, links on the right */
+  height: var(--nav-height);
+}
+
+/* The "AL ANNA LU" mark on the left */
+.nav-logo {
+  font-family: var(--font-headings);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-logo-box {                    /* the small red square with "AL" */
+  width: 32px; height: 32px;
+  background: var(--color-accent);
+  color: #fff;
+  display: grid; place-items: center;
+  font-size: 0.8rem;
+}
+
+/* The row of links */
+.nav-links {
+  display: flex;
+  gap: var(--space-32);
+  font-family: var(--font-labels);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.nav-links a {
+  color: var(--color-text-soft-on-dark);
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.1s linear, border-color 0.1s linear;
+}
+.nav-links a:hover { color: var(--color-text-on-dark); border-bottom-color: var(--color-accent-light); }
+
+/* The "☰" menu button. Hidden on wide screens; section 19 shows it on small ones. */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: var(--border-width) solid var(--color-text-on-dark);
+  color: var(--color-text-on-dark);
+  width: 40px; height: 40px;
+  font-family: var(--font-labels);
+}
+
+
+/* ==========================================================================
+   7. HERO (the top of the page)
+   ========================================================================== */
+.hero { padding: calc(var(--nav-height) + var(--space-64)) 0 var(--space-48); }
+
+/* The small dark tag above the headline */
+.hero-tag {
+  display: inline-block;
+  font-family: var(--font-labels);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  margin-bottom: var(--space-24);
+  border-radius: 2px 5px 2px 4px;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.25), inset -1px -1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* The big headline. The <span> inside it (the second line) is colored red. */
+.hero h1 {
+  font-size: clamp(2rem, 4.2vw, 3.2rem);
+  line-height: 0.95;
+  margin-bottom: var(--space-24);
+}
+.hero h1 span { color: var(--color-accent); }
+
+/* The paragraph under the headline, with a red bar on its left */
+.hero-intro {
+  max-width: 58ch;                   /* "ch" is about the width of one character */
+  color: var(--color-text-soft);
+  font-size: 1.05rem;
+  margin-bottom: var(--space-32);
+  padding-left: var(--space-16);
+  border-left: 4px solid var(--color-accent);
+}
+
+/* The two buttons */
+.hero-actions { display: flex; gap: var(--space-24); flex-wrap: wrap; margin-bottom: 22px; }
+
+/* The email / phone / LinkedIn line under the buttons */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin-bottom: 38px;
+  scroll-margin-top: 110px;          /* leaves room for the nav bar when the Contact link scrolls here */
+}
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-family: var(--font-labels);
+  font-size: 0.88rem;
+  color: var(--color-text);
+  border-bottom: 1px solid transparent;
+}
+.contact-link:hover { color: var(--color-accent); border-bottom-color: var(--color-accent); }
+.contact-link svg { width: 18px; height: 18px; stroke: var(--color-accent); flex-shrink: 0; }
+
+
+/* ==========================================================================
+   8. ABOUT
+   A photo on the left, your bio on the right.
+   ========================================================================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) 1fr;   /* left column 220–300px wide, right takes the rest */
+  gap: 48px;
+  align-items: start;
+}
+.about-grid p { color: var(--color-text-soft); margin-bottom: var(--space-16); max-width: 60ch; }
+
+
+/* ==========================================================================
+   9. EDUCATION
+   Left: school and facts table. Right: relevant coursework.
+   ========================================================================== */
+.education-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 40px;
+  align-items: start;
+}
+.education-header { margin-bottom: var(--space-16); }
+.education-header h3 { font-size: 1.6rem; line-height: 1.05; }
+.education-header .org-line { font-size: 0.82rem; color: var(--color-text-soft); margin-top: 4px; }
+
+/* FACTS TABLE: rows of "label ........ value" (Degree, Minor, GPA, ...) */
+.facts-table {
+  border: 1px solid var(--line-medium);
+  border-radius: 4px 10px 3px 8px;
+  background: var(--fill-block);
+  font-family: var(--font-labels);
+  font-size: 0.85rem;
+  box-shadow: var(--edge-bevel), var(--shadow-table);
+}
+.facts-row {
+  display: flex;
+  justify-content: space-between;    /* label on the left, value on the right */
+  gap: var(--space-16);
+  padding: 10px 14px;
+  border-top: 1px solid var(--line-medium);
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.5);   /* light edge above each row: an engraved line */
+}
+.facts-row:first-child { border-top: none; box-shadow: none; }
+.facts-label { color: var(--color-accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+.facts-value { color: var(--color-text); text-align: right; }
+
+/* COURSEWORK: heading plus groups of course tags */
+.coursework h4 {
+  font-family: var(--font-labels);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  padding-bottom: var(--space-8);
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--line-medium);
+  box-shadow: 0 1px 0 var(--groove-highlight);
+}
+.course-group { margin-bottom: 14px; }
+.course-group h5 {
+  font-family: var(--font-labels);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  margin-bottom: 6px;
+}
+.course-group .tag-row { margin: 0; }
+
+
+/* ==========================================================================
+   10. LEADERSHIP
+   One big "card" for ASME with: a header, a role path (President → VP →
+   member), four stat plates, three info blocks, and a row of photos.
+   ========================================================================== */
+.leadership-card {
+  border: 1px solid var(--line-medium);
+  background: var(--fill-card);
+  border-radius: 4px 14px 5px 10px;
+  padding: 28px 28px 24px;
+  box-shadow: var(--shadow-card);
+}
+
+/* Header: job title and club on the left, dates on the right */
+.leadership-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 24px;
+  flex-wrap: wrap;                   /* on narrow screens the dates drop below */
+  padding-bottom: 14px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--line-medium);
+  box-shadow: 0 1px 0 var(--groove-highlight);
+}
+.leadership-card-header h3 { font-size: 1.7rem; line-height: 1.05; }
+.leadership-card-header .org-line { font-size: 0.82rem; color: var(--color-text-soft); margin-top: 4px; }
+.leadership-card-header .date-label { text-transform: uppercase; }
+
+/* ROLE PATH: three side-by-side boxes showing how your role grew.
+   The current role (class "is-current") is dark stone (see section 3). */
+.role-path {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 22px;
+}
+.role {
+  padding: 12px 16px;
+  border: 1px solid var(--line-faint);
+  background: var(--fill-card);
+  margin-left: -1px;                 /* overlap neighbors by 1px so borders don't double up */
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.1);
+}
+.role:first-child { margin-left: 0; border-radius: 6px 0 0 6px; }
+.role:last-child  { border-radius: 0 10px 4px 0; }
+.role-years {
+  font-family: var(--font-labels);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.role-title {
+  font-family: var(--font-headings);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.role p { font-size: 0.85rem; color: var(--color-text-soft); margin-top: 6px; }
+.role.is-current { border-color: rgba(0, 0, 0, 0.7); }
+.role.is-current .role-years { color: var(--color-accent-light); }
+.role.is-current p { color: var(--color-text-soft-on-dark); }
+
+/* STAT PLATES: the big numbers (11, $10K+, ...). Dark stone, slightly
+   different corner shapes on each one. */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-16);
+  margin-bottom: var(--space-24);
+}
+.stat-plate {
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  border-radius: 3px 10px 3px 8px;
+  padding: 16px 18px;
+  box-shadow: var(--shadow-dark-plate);
+}
+.stat-plate:nth-child(2) { border-radius: 9px 3px 10px 3px; }
+.stat-plate:nth-child(3) { border-radius: 3px 8px 3px 10px; }
+.stat-plate:nth-child(4) { border-radius: 10px 3px 8px 3px; }
+.stat-number {
+  font-family: var(--font-headings);
+  font-weight: 800;
+  font-size: 2.4rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.stat-label {
+  font-family: var(--font-labels);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+  margin-top: var(--space-8);
+}
+/* A row of exactly three plates (used on case study "Results") */
+.stat-row.three-up { grid-template-columns: repeat(3, 1fr); margin-bottom: 28px; }
+
+/* INFO GRID + INFO BLOCKS: a grid of small stone blocks, each with a title
+   and a list or paragraph. Used for leadership details and case studies.
+   Add class "is-wide" to a block to make it span the full width. */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-16);
+  margin-bottom: 22px;
+}
+.info-block {
+  border: 1px solid var(--line-faint);
+  background: var(--fill-block);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-small-block);
+}
+.info-block:nth-child(1) { border-radius: 3px 10px 4px 7px; }
+.info-block:nth-child(2) { border-radius: 8px 3px 10px 3px; }
+.info-block:nth-child(3) { border-radius: 4px 7px 3px 11px; }
+.info-block:nth-child(4) { border-radius: 9px 4px 7px 3px; }
+.info-block:nth-child(5) { border-radius: 3px 9px 3px 8px; }
+.info-block h4 {
+  font-family: var(--font-labels);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-8);
+}
+.info-block p { font-size: 0.92rem; color: var(--color-text-soft); margin-bottom: var(--space-8); }
+.info-block.is-wide { grid-column: 1 / -1; }
+
+/* STEP LIST: numbered steps in boxes with arrows between them
+   (the sponsorship steps, and the "Build" steps in case studies).
+   The numbers and arrows are generated by CSS, not typed in the HTML. */
+.step-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  counter-reset: step;               /* start counting at 0 */
+  margin-top: 4px;
+}
+.step-list li {
+  position: relative;
+  counter-increment: step;           /* add 1 for each step */
+  padding: 14px;
+  border: 1px solid var(--line-faint);
+  background: var(--fill-block);
+  border-radius: 3px 9px 3px 7px;
+  box-shadow: var(--shadow-small-block);
+}
+.step-list li:nth-child(even) { border-radius: 8px 3px 9px 3px; }
+.step-list li::before {              /* the little numbered square */
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  margin-bottom: var(--space-8);
+  background: var(--color-dark-stone);
+  color: var(--color-text-on-dark);
+  font-family: var(--font-headings);
+  font-weight: 800;
+  font-size: 0.9rem;
+  border-radius: 3px;
+  box-shadow: var(--edge-bevel);
+}
+.step-list li + li::after {          /* the arrow between steps */
+  content: '→';
+  position: absolute;
+  left: -16px;
+  top: 18px;
+  width: 14px;
+  text-align: center;
+  font-family: var(--font-labels);
+  font-weight: 700;
+  color: var(--color-text-soft);
+}
+.step-list strong {
+  display: block;
+  font-family: var(--font-labels);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 4px;
+}
+.step-list span { font-size: 0.88rem; color: var(--color-text-soft); display: block; }
+
+
+/* ==========================================================================
+   11. EXPERIENCE (TIMELINE)
+   A vertical line with a square marker for each job.
+   ========================================================================== */
+.timeline { position: relative; padding-left: var(--space-48); }
+
+/* The vertical line (a thin, carved-looking groove) */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px; top: 6px; bottom: 6px;
+  width: 3px;
+  background: var(--line-strong);
+  box-shadow: 1px 0 0 rgba(255, 255, 255, 0.5);
+}
+.timeline-item { position: relative; padding-bottom: var(--space-32); }
+.timeline-item:last-child { padding-bottom: 0; }
+
+/* The square marker. The newest job (first item) is red. */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -48px; top: 3px;
+  width: 18px; height: 18px;
+  background: var(--color-dark-stone);
+  border: var(--border-width) solid var(--color-outline);
+  border-radius: 2px;
+}
+.timeline-item:first-child::before { background: var(--color-accent); }
+
+.timeline-item .date-label { text-transform: uppercase; }
+.timeline-item h3 { font-size: 1.15rem; margin: 4px 0; }
+.timeline-item .org-line { color: var(--color-text); font-size: 0.85rem; margin-bottom: 6px; }
+.timeline-item ul { margin-top: var(--space-8); max-width: 72ch; }
+
+
+/* ==========================================================================
+   12. TECHNICAL SKILLS
+   Four boxes (two per row), each with a title and skill tags.
+   ========================================================================== */
+.skill-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-16); }
+.skill-group {
+  border: 1px solid var(--line-faint);
+  background: var(--fill-block);
+  padding: 16px 18px 18px;
+  box-shadow: var(--shadow-small-block);
+}
+.skill-group:nth-child(1) { border-radius: 3px 11px 4px 8px; }
+.skill-group:nth-child(2) { border-radius: 9px 3px 10px 3px; }
+.skill-group:nth-child(3) { border-radius: 4px 8px 3px 12px; }
+.skill-group:nth-child(4) { border-radius: 10px 4px 8px 3px; }
+.skill-group h4 {
+  font-family: var(--font-labels);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+}
+.skill-group .tag-row { margin: 0; }
+.skill-note { margin-top: var(--space-16); font-family: var(--font-labels); font-size: 0.78rem; color: var(--color-text-soft); }
+
+
+/* ==========================================================================
+   13. PROJECTS
+   A compact list of rows: title and description on the left, year on the right.
+   ========================================================================== */
+.project-list { display: flex; flex-direction: column; }
+.project-row {
+  display: grid;
+  grid-template-columns: 1fr auto;   /* text takes the space, year is as narrow as its text */
+  gap: 8px 24px;
+  padding: var(--space-16) 0;
+  border-top: 1px solid var(--line-medium);
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.5);
+}
+.project-row:first-child { border-top: none; box-shadow: none; padding-top: 0; }
+.project-row h3 { font-size: 1rem; margin-bottom: 2px; }
+.project-row p { font-size: 0.88rem; color: var(--color-text-soft); max-width: 70ch; }
+.project-row .tag-row { margin: var(--space-8) 0 0; }
+.project-row .date-label { font-size: 0.72rem; }
+
+
+/* ==========================================================================
+   14. ACTIVITIES
+   ========================================================================== */
+.activity-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) 1fr;   /* photo on the left, text on the right */
+  gap: 28px;
+  align-items: center;
+}
+.activity-card h3 { font-size: 1.25rem; margin-bottom: 4px; }
+.activity-card .date-label { font-size: 0.74rem; margin-bottom: var(--space-8); }
+.activity-card p { font-size: 0.92rem; color: var(--color-text-soft); max-width: 60ch; }
+
+/* A one-line note under a section (e.g. "Also a member of ...") */
+.also-line {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-faint);
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.5);
+  font-family: var(--font-labels);
+  font-size: 0.8rem;
+  color: var(--color-text-soft);
+}
+#activities .also-line { margin-top: var(--space-8); }
+
+
+/* ==========================================================================
+   15. PHOTO FRAMES
+   A frame is set into the stone. The HTML has both a placeholder and an
+   <img>. If the image file exists it covers the placeholder; if not, the
+   <img> removes itself (see onerror in the HTML) and the placeholder shows.
+   ========================================================================== */
+.photo-slot {
+  position: relative;
+  margin: 0;
+  aspect-ratio: var(--frame-shape, 4 / 3);   /* width / height. Each frame sets --frame-shape in the HTML. */
+  overflow: hidden;                           /* crops the photo to the frame */
+  border: 1px solid var(--line-strong);
+  border-radius: 4px 10px 4px 8px;
+  background: var(--color-dark-stone);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.photo-slot:nth-child(even) { border-radius: 9px 4px 10px 4px; }
+.photo-slot.is-small { max-width: 340px; margin-top: 12px; }   /* a smaller frame under some text */
+
+/* The photo fills the frame and is cropped (centered) to fit */
+.photo-slot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* An inner shadow drawn ABOVE the photo so it looks sunk into the stone */
+.photo-slot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 3px 4px 10px rgba(0, 0, 0, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.18);
+  pointer-events: none;
+}
+
+/* The placeholder shown until you add a photo: dark stone with faint
+   diagonal lines, a camera icon, a label, and the file name to use. */
+.photo-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  text-align: center;
+  color: var(--color-text-soft-on-dark);
+  background-color: var(--color-dark-stone);
+  background-image:
+    repeating-linear-gradient(45deg, transparent 0 14px, rgba(255, 255, 255, 0.06) 14px 15px),
+    var(--texture-air-bubble-pits),
+    var(--texture-flecks),
+    var(--texture-rough-stone);
+  background-size: auto, 512px 512px, 512px 512px, 512px 512px;
+  background-blend-mode: normal, normal, normal, multiply;
+}
+.photo-placeholder svg { width: 30px; height: 30px; opacity: 0.8; }
+.placeholder-label {
+  font-family: var(--font-labels);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-on-dark);
+}
+.placeholder-filename { font-family: var(--font-labels); font-size: 0.66rem; opacity: 0.85; }
+
+/* A row of three frames (the ASME photos, and photo rows in case studies) */
+.photo-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-16);
+  margin-top: 22px;
+}
+
+
+/* ==========================================================================
+   16. FOOTER
+   A dark stone slab with the revision table and a line of text.
+   ========================================================================== */
+.footer {
+  border-top: var(--border-width) solid var(--color-outline);
+  padding: var(--space-24) 0;
+  margin-top: var(--space-64);
+}
+.footer .container {
+  font-family: var(--font-labels);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.footer-line { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-8); }
+
+/* REVISION TABLE: a small history of site versions (REV / DATE / NOTE) */
+.revision-table {
+  max-width: 560px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-on-dark);
+  font-size: 0.72rem;
+}
+.revision-row {
+  display: grid;
+  grid-template-columns: 44px 84px 1fr;   /* three columns: REV, DATE, NOTE */
+  gap: 0 12px;
+  padding: 3px 0;
+  font-weight: 500;
+}
+.revision-heading {
+  color: var(--color-accent-light);
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(236, 235, 228, 0.3);
+  padding-bottom: 4px;
+  margin-bottom: 3px;
+}
+
+
+/* ==========================================================================
+   17. CASE STUDY PAGES (case-study-template.html, cement-boat.html)
+   ========================================================================== */
+
+/* "← Back to projects" link at the top of a case study */
+.back-link {
+  display: inline-block;
+  font-family: var(--font-labels);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  margin-bottom: 18px;
+  border-bottom: 2px solid transparent;
+}
+.back-link:hover { color: var(--color-accent); border-bottom-color: var(--color-accent); }
+
+/* A slightly smaller title than the home page headline */
+.hero.case-study-hero h1 { font-size: clamp(2.2rem, 5.5vw, 4rem); }
+
+/* INFO PLATE: the dark grid of facts at the top of a case study
+   (role, team, timeframe, tools, ...). Dark stone look comes from section 3. */
+.info-plate {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  border-radius: 5px 11px 4px 8px;
+  box-shadow: var(--edge-bevel), var(--shadow-table);
+  margin-bottom: 28px;
+}
+.info-cell {
+  padding: var(--space-16);
+  border-right: var(--border-width) solid var(--line-on-dark);
+  border-top: var(--border-width) solid var(--line-on-dark);
+}
+.info-cell:nth-child(-n+4) { border-top: none; }     /* no line above the first row */
+.info-cell:nth-child(4n) { border-right: none; }     /* no line right of the last column */
+.info-label {
+  font-family: var(--font-labels);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+  margin-bottom: 4px;
+}
+.info-value { font-family: var(--font-labels); font-size: 0.95rem; font-weight: 500; }
+
+/* Normal text blocks (paragraphs, goal lists) inside case study sections */
+.case-study-text p { color: var(--color-text-soft); max-width: 72ch; margin-bottom: 14px; }
+.case-study-text h3 { font-size: 1.05rem; margin: 22px 0 10px; }
+.case-study-text ul {
+  list-style: square;
+  padding-left: 20px;
+  display: grid;
+  gap: 6px;
+  color: var(--color-text-soft);
+  max-width: 72ch;
+  margin-bottom: 14px;
+}
+.case-study-text li::marker { color: var(--color-accent); }
+
+/* TABLES (constraints, options compared, test versions). The wrapper lets a
+   wide table scroll sideways on a phone instead of breaking the layout. */
+.table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line-medium);
+  border-radius: 4px 10px 4px 8px;
+  background: var(--fill-block);
+  box-shadow: var(--edge-bevel), var(--shadow-table);
+  margin: var(--space-8) 0 22px;
+}
+.case-study-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 560px; }
+.case-study-table th {
+  text-align: left;
+  font-family: var(--font-labels);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line-medium);
+}
+.case-study-table td {
+  padding: 10px 14px;
+  border-top: 1px solid var(--line-faint);
+  color: var(--color-text-soft);
+  vertical-align: top;             /* text lines up at the top of each cell */
+}
+.case-study-table tbody tr:first-child td { border-top: none; }
+.case-study-table td:first-child { color: var(--color-text); font-weight: 500; }
+
+/* PROMPTS YOU STILL NEED TO FILL IN: dashed, italic, easy to spot.
+   Search a page for class="todo" to find every one. */
+.todo {
+  display: inline;
+  padding: 1px 6px;
+  border: 1px dashed var(--line-medium);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  font-style: italic;
+  color: var(--color-text);
+}
+.todo-banner {
+  border: 1px dashed var(--line-strong);
+  background: rgba(255, 255, 255, 0.55);
+  padding: 12px var(--space-16);
+  margin-bottom: 22px;
+  border-radius: 4px;
+  font-family: var(--font-labels);
+  font-size: 0.8rem;
+  color: var(--color-text);
+}
+
+
+/* ==========================================================================
+   18. SLIDE-IN ANIMATIONS
+   How it works:
+     - Sections (and the hero) have class "slide-in" in the HTML.
+     - site.js adds "slide-in-started" the first time a section scrolls into view.
+     - That starts the panel animation: the stone panel slides in from
+       off-screen, overshoots a little, settles with a thud, and puffs dust.
+     - After the panel lands, blocks inside it slide out one by one.
+     - A few seconds later site.js adds "slide-in-finished" so nothing replays.
+
+   Direction variables used by the animations:
+     --from-x / --from-y : how far away the thing starts (left/right, up/down)
+     --clip-from         : the hidden shape a block "grows" out of
+     --stagger-index     : 0, 1, 2... delays blocks one after another
+   ========================================================================== */
+
+/* Before a section arrives, hide its panel (visibility keeps its space) */
+.slide-in:not(.slide-in-started) > .container { visibility: hidden; }
+
+/* The panel slide-in. By default a panel rises from below the screen. */
+.slide-in.slide-in-started > .container {
+  --from-x: 0px;
+  --from-y: 100vh;                   /* 100vh = one full screen height */
+  animation: panel-slide-in 1.25s cubic-bezier(0.16, 0.84, 0.3, 1) backwards;   /* 1.25s = how long the slide takes; smaller = faster */
+  will-change: transform;            /* tells the browser to prepare for movement, which keeps it smooth */
+}
+/* Different directions for variety: About from the left, Experience from the right */
+#about.slide-in-started > .container  { --from-x: -100vw; --from-y: 0px; }
+#experience.slide-in-started > .container { --from-x: 100vw;  --from-y: 0px; }
+
+/* The panel's motion: starts far away with a high shadow, overshoots slightly
+   at 72%, settles back at 86%, and ends in place with its resting shadow. */
+@keyframes panel-slide-in {
+  0%   { transform: translate(var(--from-x), var(--from-y)); box-shadow: var(--edge-bevel), var(--shadow-panel-lifted); }
+  72%  { transform: translate(calc(var(--from-x) * -0.02), calc(var(--from-y) * -0.02)); box-shadow: var(--edge-bevel), var(--shadow-panel-resting); }
+  86%  { transform: translate(calc(var(--from-x) * 0.006), calc(var(--from-y) * 0.006)); }
+  100% { transform: translate(0, 0); box-shadow: var(--edge-bevel), var(--shadow-panel-resting); }
+}
+
+/* Dust puff along the bottom edge at the moment the panel lands */
+.slide-in-started > .container::before { animation: panel-dust 1.25s ease-out; }   /* keep this the same length as the panel slide */
+@keyframes panel-dust {
+  0%, 66% { opacity: 0; transform: scaleX(0.6); }
+  76%     { opacity: 0.9; }
+  100%    { opacity: 0; transform: scaleX(1.3) translateY(6px); }
+}
+
+/* BLOCKS INSIDE A PANEL: each slides out of the panel, revealed along the
+   edge it comes from. They wait 0.9s (for the panel to land), then each
+   waits an extra 0.16s per --stagger-index.
+   TO SPEED EVERYTHING UP OR DOWN: change the four time values in this section
+   (panel slide, dust, block slide, block delay) by the same proportion. */
+.slide-in-started .info-plate,
+.slide-in-started .facts-table,
+.slide-in-started .timeline-item,
+.slide-in-started .leadership-card,
+.slide-in-started .project-row,
+.slide-in-started .skill-group,
+.slide-in-started .activity-card,
+.slide-in-started .coursework,
+.slide-in-started .photo-row {
+  --from-x: 0px;
+  --from-y: 70px;
+  --clip-from: inset(100% 0 0 0);    /* inset(top right bottom left): starts fully hidden, reveals from the bottom */
+  --stagger-index: 0;
+  animation: block-slide-in 0.85s cubic-bezier(0.2, 0.8, 0.25, 1) backwards;   /* 0.85s = how long each block takes */
+  animation-delay: calc(0.9s + var(--stagger-index) * 0.16s);   /* wait 0.9s for the panel to land, then 0.16s more per item */
+}
+/* The facts table comes in from the right */
+.slide-in-started .facts-table {
+  --from-x: 70px;
+  --from-y: 0px;
+  --clip-from: inset(0 0 0 100%);
+}
+/* Timeline items and project rows come in from the left */
+.slide-in-started .timeline-item,
+.slide-in-started .project-row {
+  --from-x: -70px;
+  --from-y: 0px;
+  --clip-from: inset(0 100% 0 0);
+}
+/* Delay the 2nd, 3rd, 4th, 5th item in a list a bit more each time */
+.slide-in-started .timeline-item:nth-child(2), .slide-in-started .project-row:nth-child(2), .slide-in-started .skill-group:nth-child(2) { --stagger-index: 1; }
+.slide-in-started .timeline-item:nth-child(3), .slide-in-started .project-row:nth-child(3), .slide-in-started .skill-group:nth-child(3) { --stagger-index: 2; }
+.slide-in-started .timeline-item:nth-child(4), .slide-in-started .project-row:nth-child(4), .slide-in-started .skill-group:nth-child(4) { --stagger-index: 3; }
+.slide-in-started .project-row:nth-child(5) { --stagger-index: 4; }
+
+@keyframes block-slide-in {
+  0%   { clip-path: var(--clip-from); transform: translate(var(--from-x), var(--from-y)); }
+  72%  { clip-path: inset(0 0 0 0); transform: translate(calc(var(--from-x) * -0.04), calc(var(--from-y) * -0.04)); }
+  86%  { transform: translate(calc(var(--from-x) * 0.012), calc(var(--from-y) * 0.012)); }
+  100% { clip-path: inset(0 0 0 0); transform: translate(0, 0); }
+}
+
+/* The timeline's vertical line draws itself downward */
+.slide-in-started .timeline::before {
+  transform-origin: top;
+  animation: timeline-draw 1.1s ease-out 0.8s backwards;   /* duration, then delay */
+}
+@keyframes timeline-draw {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+/* After everything has landed, release the "get ready to move" hint on the panel
+   and switch the block animations off for good */
+.slide-in.slide-in-started.slide-in-finished > .container { will-change: auto; }
+.slide-in-finished .info-plate,
+.slide-in-finished .facts-table,
+.slide-in-finished .timeline-item,
+.slide-in-finished .leadership-card,
+.slide-in-finished .project-row,
+.slide-in-finished .skill-group,
+.slide-in-finished .activity-card,
+.slide-in-finished .coursework,
+.slide-in-finished .photo-row { animation: none; }
+
+/* For people who prefer reduced motion: no slide-in animation at all */
+@media (prefers-reduced-motion: reduce) {
+  .slide-in-started > .container,
+  .slide-in-started > .container::before,
+  .slide-in-started .info-plate,
+  .slide-in-started .facts-table,
+  .slide-in-started .timeline-item,
+  .slide-in-started .leadership-card,
+  .slide-in-started .project-row,
+  .slide-in-started .skill-group,
+  .slide-in-started .activity-card,
+  .slide-in-started .coursework,
+  .slide-in-started .photo-row,
+  .slide-in-started .timeline::before { animation: none; }
+}
+
+
+/* ==========================================================================
+   19. TABLET AND PHONE LAYOUTS
+   "@media (max-width: 860px)" means "only apply these rules when the screen
+   is 860 pixels wide or narrower". Multi-column layouts collapse to one
+   column, and the nav links turn into a menu button.
+   ========================================================================== */
+
+/* Small laptops: tighten the nav so all links fit */
+@media (min-width: 861px) and (max-width: 1100px) {
+  .nav-links { gap: 14px; font-size: 0.7rem; }
+}
+
+/* Tablets and phones */
+@media (max-width: 860px) {
+
+  /* Panels get less padding */
+  .section > .container, .hero > .container { padding: 64px 24px 40px; }
+
+  /* Nav: hide the links, show the ☰ button. Pressing it adds class "open" (site.js). */
+  .nav-links {
+    position: absolute;
+    top: var(--nav-height); left: 0; right: 0;
+    background-color: var(--color-dark-stone);
+    background-image: var(--texture-rough-stone);
+    background-blend-mode: multiply;
+    flex-direction: column;
+    gap: var(--space-16);
+    padding: var(--space-16) var(--space-24);
+    border-bottom: var(--border-width) solid var(--color-outline);
+    display: none;
+  }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: block; }
+
+  /* Two-column layouts become one column */
+  .about-grid { grid-template-columns: 1fr; gap: 28px; }
+  .about-grid .photo-slot { max-width: 320px; }
+  .education-grid { grid-template-columns: 1fr; }
+  .activity-card { grid-template-columns: 1fr; }
+  .activity-card .photo-slot { max-width: 360px; }
+  .info-grid { grid-template-columns: 1fr; }
+  .skill-grid { grid-template-columns: 1fr; }
+  .photo-row { grid-template-columns: 1fr; }
+
+  /* Leadership details */
+  .stat-row { grid-template-columns: repeat(2, 1fr); }
+  .role-path { grid-template-columns: 1fr; }
+  .role:first-child, .role:last-child { border-radius: 4px; }
+  .role { margin-left: 0; margin-top: -1px; }
+  .step-list { grid-template-columns: repeat(2, 1fr); }
+  .step-list li + li::after { display: none; }       /* arrows don't make sense when steps wrap */
+
+  /* Case study info plate: two columns instead of four */
+  .info-plate { grid-template-columns: repeat(2, 1fr); }
+  .info-cell:nth-child(n) { border-top: var(--border-width) solid var(--line-on-dark); border-right: var(--border-width) solid var(--line-on-dark); }
+  .info-cell:nth-child(-n+2) { border-top: none; }
+  .info-cell:nth-child(2n) { border-right: none; }
+}
+
+/* Phones */
+@media (max-width: 680px) {
+  .stat-row { grid-template-columns: 1fr; }
+  .stat-row.three-up { grid-template-columns: 1fr; }
+  .leadership-card { padding: 22px 18px 20px; }
+}
+@media (max-width: 560px) {
+  .step-list { grid-template-columns: 1fr; }
+}

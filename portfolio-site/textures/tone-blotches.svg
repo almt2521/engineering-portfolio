@@ -1,0 +1,20 @@
+<!--
+  TONE BLOTCHES. Large soft light and dark patches so the wall is not one flat shade, like real stone that has weathered unevenly.
+
+  HOW IT IS USED: style.css lists this file in the "TEXTURES" section near the top,
+  and layers it on the wall, panels, and dark stone. It is a picture the browser draws,
+  so there is nothing here you need to edit. To make a texture stronger or weaker,
+  change its size or blending in style.css instead of editing this file.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900">
+<filter id="d" x="0" y="0" width="100%" height="100%">
+<feTurbulence type="fractalNoise" baseFrequency="0.007" numOctaves="3" seed="14" stitchTiles="stitch"/>
+<feColorMatrix values="0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0 0.08  0 0 0 0.7 -0.22"/>
+</filter>
+<filter id="l" x="0" y="0" width="100%" height="100%">
+<feTurbulence type="fractalNoise" baseFrequency="0.009" numOctaves="3" seed="27" stitchTiles="stitch"/>
+<feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 0.97  0 0 0 0.7 -0.3"/>
+</filter>
+<rect width="100%" height="100%" filter="url(#d)"/>
+<rect width="100%" height="100%" filter="url(#l)"/>
+</svg>

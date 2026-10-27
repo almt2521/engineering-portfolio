@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<!--
+  ==========================================================================
+  CASE STUDY TEMPLATE
+  ==========================================================================
+  HOW TO USE THIS TEMPLATE
+  1. Copy this file and rename it, for example: my-project.html
+  2. Replace every highlighted [Add: ...] prompt with your own words.
+     To find the ones you missed, search the file for:  class="todo"
+  3. Photos: save images in the photos/ folder using the file names shown in
+     each frame (rename them to match your project, e.g. photos/my-project-hero.jpg
+     and also update the names inside the page). They appear automatically.
+  4. Delete the dashed banner at the top, and the noindex line in <head>,
+     when you are done.
+  5. Link the finished page from the Projects section of index.html, inside a
+     project-row, for example:
+       <a href="my-project.html">Case study →</a>
+  6. Delete any section you do not need (each is one <section> block, plus the
+     divider line after it).
+
+  TIP: numbers make a case study. Add mass, cost, time, speed, versions tried,
+  or pass rates wherever you can.
+  ==========================================================================
+-->
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Text shown on the browser tab and in search results -->
+  <title>Case study template — Anna Lu</title>
+  <meta name="description" content="Template for a project case study.">
+
+  <!-- noindex tells search engines NOT to list this page. Delete this line when the page is finished and you want it findable. -->
+  <meta name="robots" content="noindex">
+
+  <!-- Fonts and styles: the same files the home page uses -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- ICONS: drawn once here (invisible), reused by the photo frames -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="icon-camera" viewBox="0 0 24 24"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+</svg>
+
+
+<!-- ==========================================================================
+     NAVIGATION BAR (links back to the home page)
+     ========================================================================== -->
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="nav-logo"><span class="nav-logo-box">AL</span> ANNA LU</a>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+
+<!-- ==========================================================================
+     TOP OF THE CASE STUDY
+     Back link, draft banner, tag, title, one-line summary, an info plate of
+     quick facts, and the main photo.
+     ========================================================================== -->
+<header class="hero case-study-hero slide-in" id="top">
+  <div class="container">
+
+    <a class="back-link" href="index.html#projects">← Back to projects</a>
+
+    <!-- Delete this banner when the page is finished -->
+    <div class="todo-banner">Template: copy this file, then replace each highlighted prompt. Delete this banner when you are done.</div>
+
+    <div class="hero-tag">Case study · <span class="todo">[Add: course or organization]</span> · <span class="todo">[Add: year]</span></div>
+    <h1>[Project title]</h1>
+    <p class="hero-intro"><span class="todo">[Add: One or two sentences: what you built, and why it matters]</span></p>
+
+    <!-- INFO PLATE: each info-cell has a small label and a value.
+         Edit the values; keep eight cells so the grid stays even. -->
+    <div class="info-plate">
+        <div class="info-cell"><div class="info-label">Role</div><div class="info-value"><span class="todo">[Add: your role]</span></div></div>
+        <div class="info-cell"><div class="info-label">Team</div><div class="info-value"><span class="todo">[Add: team size]</span></div></div>
+        <div class="info-cell"><div class="info-label">Timeframe</div><div class="info-value"><span class="todo">[Add: dates]</span></div></div>
+        <div class="info-cell"><div class="info-label">Context</div><div class="info-value"><span class="todo">[Add: course, club, or job]</span></div></div>
+        <div class="info-cell"><div class="info-label">Tools</div><div class="info-value"><span class="todo">[Add: CAD, software, equipment]</span></div></div>
+        <div class="info-cell"><div class="info-label">Skills</div><div class="info-value"><span class="todo">[Add: 3 to 4 skills]</span></div></div>
+        <div class="info-cell"><div class="info-label">Status</div><div class="info-value"><span class="todo">[Add: completed, ongoing]</span></div></div>
+        <div class="info-cell"><div class="info-label">Outcome</div><div class="info-value"><span class="todo">[Add: one-line result]</span></div></div>
+    </div>
+
+    <!-- MAIN PHOTO: save as photos/case-study-hero.jpg -->
+    <figure class="photo-slot" style="--frame-shape: 16 / 9">
+      <div class="photo-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-camera"/></svg>
+        <span class="placeholder-label">Hero photo</span>
+        <span class="placeholder-filename">photos/case-study-hero.jpg</span>
+      </div>
+      <img src="photos/case-study-hero.jpg" alt="Project, finished" loading="lazy" onerror="this.remove()">
+    </figure>
+
+  </div>
+</header>
+
+
+<main>
+
+  <!-- ========================================================================
+       SECTION 01: PROBLEM
+       What to write: what needed solving, for whom, and what the goals were. Two or three sentences plus 3 goals.
+       ======================================================================== -->
+  <section class="section slide-in" id="problem">
+    <div class="container">
+      <div class="section-label">01 · Problem</div>
+      <h2>The problem</h2>
+      <div class="case-study-text">
+        <p><span class="todo">[Add: What was the problem? Who needs the solution, and what happens if it is not solved? Two or three sentences.]</span></p>
+        <h3>Goals</h3>
+        <ul>
+            <li><span class="todo">[Add: Goal 1, measurable if you can (for example, "carry 2 kg" or "cost under $20")]</span></li>
+            <li><span class="todo">[Add: Goal 2]</span></li>
+            <li><span class="todo">[Add: Goal 3]</span></li>
+          </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="section-divider">02.000</div></div>
+
+  <!-- ========================================================================
+       SECTION 02: CONSTRAINTS
+       What to write: what limited your design (mass, cost, materials, time, tools, safety). The table pairs each requirement with a target and a reason.
+       ======================================================================== -->
+  <section class="section slide-in" id="constraints">
+    <div class="container">
+      <div class="section-label">02 · Constraints</div>
+      <h2>Constraints and requirements</h2>
+      <div class="case-study-text">
+        <p><span class="todo">[Add: What limited your design: mass, cost, materials, time, tools, safety, manufacturing method?]</span></p>
+      </div>
+      <div class="table-scroll">
+          <table class="case-study-table">
+            <thead><tr><th>Requirement</th><th>Target</th><th>Why it matters</th></tr></thead>
+            <tbody>
+            <tr><td><span class="todo">[Add: Requirement 1]</span></td><td><span class="todo">[Add: target number]</span></td><td><span class="todo">[Add: why it matters]</span></td></tr>
+            <tr><td><span class="todo">[Add: Requirement 2]</span></td><td><span class="todo">[Add: target number]</span></td><td><span class="todo">[Add: why it matters]</span></td></tr>
+            <tr><td><span class="todo">[Add: Requirement 3]</span></td><td><span class="todo">[Add: target number]</span></td><td><span class="todo">[Add: why it matters]</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="section-divider">03.500</div></div>
+
+  <!-- ========================================================================
+       SECTION 03: RESEARCH
+       What to write: what you researched and the options you compared before choosing. Add a row to the table for each option.
+       ======================================================================== -->
+  <section class="section slide-in" id="research">
+    <div class="container">
+      <div class="section-label">03 · Research</div>
+      <h2>Research and concepts</h2>
+      <div class="case-study-text">
+        <p><span class="todo">[Add: What did you research, and what options did you consider? Show you compared alternatives before choosing.]</span></p>
+      </div>
+      <div class="table-scroll">
+          <table class="case-study-table">
+            <thead><tr><th>Option</th><th>Pros</th><th>Cons</th><th>Decision</th></tr></thead>
+            <tbody>
+            <tr><td><span class="todo">[Add: Concept A]</span></td><td><span class="todo">[Add: pros]</span></td><td><span class="todo">[Add: cons]</span></td><td><span class="todo">[Add: chosen or rejected, and why]</span></td></tr>
+            <tr><td><span class="todo">[Add: Concept B]</span></td><td><span class="todo">[Add: pros]</span></td><td><span class="todo">[Add: cons]</span></td><td><span class="todo">[Add: chosen or rejected, and why]</span></td></tr>
+            <tr><td><span class="todo">[Add: Concept C]</span></td><td><span class="todo">[Add: pros]</span></td><td><span class="todo">[Add: cons]</span></td><td><span class="todo">[Add: chosen or rejected, and why]</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="section-divider">05.000</div></div>
+
+  <!-- ========================================================================
+       SECTION 04: DESIGN
+       What to write: your 3 biggest design decisions and why you made them. Add CAD screenshots, sketches, or renders in the photo row.
+       ======================================================================== -->
+  <section class="section slide-in" id="design">
+    <div class="container">
+      <div class="section-label">04 · Design</div>
+      <h2>Design</h2>
+      <div class="info-grid">
+          <div class="info-block"><h4>Key decision 1</h4><p><span class="todo">[Add: what you decided and why]</span></p></div>
+          <div class="info-block"><h4>Key decision 2</h4><p><span class="todo">[Add: what you decided and why]</span></p></div>
+          <div class="info-block"><h4>Key decision 3</h4><p><span class="todo">[Add: what you decided and why]</span></p></div>
+        </div>
+      <div class="spacer"></div>
+      <div class="photo-row">
+          <figure class="photo-slot" style="--frame-shape: 4 / 3">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-camera"/></svg>
+              <span class="placeholder-label">CAD or sketch</span>
+              <span class="placeholder-filename">photos/case-study-design-1.jpg</span>
+            </div>
+            <img src="photos/case-study-design-1.jpg" alt="Project: design 1" loading="lazy" onerror="this.remove()">
+          </figure>
+          <figure class="photo-slot" style="--frame-shape: 4 / 3">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-camera"/></svg>
+              <span class="placeholder-label">CAD or sketch</span>
+              <span class="placeholder-filename">photos/case-study-design-2.jpg</span>
+            </div>
+            <img src="photos/case-study-design-2.jpg" alt="Project: design 2" loading="lazy" onerror="this.remove()">
+          </figure>
+          <figure class="photo-slot" style="--frame-shape: 4 / 3">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-camera"/></svg>
+              <span class="placeholder-label">CAD or sketch</span>
+              <span class="placeholder-filename">photos/case-study-design-3.jpg</span>
+            </div>
+            <img src="photos/case-study-design-3.jpg" alt="Project: design 3" loading="lazy" onerror="this.remove()">
+          </figure>
+        </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="section-divider">06.500</div></div>
+
+  <!-- ========================================================================
+       SECTION 05: BUILD
+       What to write: how you made it, in four steps, plus anything that went differently than planned. Add photos of the process.
+       ======================================================================== -->
+  <section class="section slide-in" id="build">
+    <div class="container">
+      <div class="section-label">05 · Build</div>
+      <h2>Build</h2>
+      <div class="case-study-text">
+        <p><span class="todo">[Add: How did you make it? Materials, processes, and anything that went differently than planned.]</span></p>
+      </div>
+      <ol class="step-list">
+          <li><strong>Step 1</strong><span><span class="todo">[Add: what you did]</span></span></li>
+          <li><strong>Step 2</strong><span><span class="todo">[Add: what you did]</span></span></li>
+          <li><strong>Step 3</strong><span><span class="todo">[Add: what you did]</span></span></li>
+          <li><strong>Step 4</strong><span><span class="todo">[Add: what you did]</span></span></li>
+        </ol>
+      <div class="spacer"></div>
+      <div class="photo-row">
+          <figure class="photo-slot" style="--frame-shape: 4 / 3">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-camera"/></svg>
+              <span class="placeholder-label">Build photo</span>
+              <span class="placeholder-filename">photos/case-study-build-1.jpg</span>
+            </div>
+            <img src="photos/case-study-build-1.jpg" alt="Project: build 1" loading="lazy" onerror="this.remove()">
+          </figure>
+          <figure class="photo-slot" style="--frame-shape: 4 / 3">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-camera"/></svg>
+              <span class="placeholder-label">Build photo</span>
+              <span class="placeholder-filename">photos/case-study-build-2.jpg</span>
+            </div>
+            <img src="photos/case-study-build-2.jpg" alt="Project: build 2" loading="lazy" onerror="this.remove()">
+          </figure>
+          <figure class="photo-slot" style="--frame-shape: 4 / 3">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-camera"/></svg>
+              <span class="placeholder-label">Build photo</span>
+              <span class="placeholder-filename">photos/case-study-build-3.jpg</span>
+            </div>
+            <img src="photos/case-study-build-3.jpg" alt="Project: build 3" loading="lazy" onerror="this.remove()">
+          </figure>
+        </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="section-divider">08.000</div></div>
+
+  <!-- ========================================================================
+       SECTION 06: TESTING
+       What to write: how you tested it and how the design changed because of the results. One table row per version.
+       ======================================================================== -->
+  <section class="section slide-in" id="testing">
+    <div class="container">
+      <div class="section-label">06 · Testing</div>
+      <h2>Testing and iteration</h2>
+      <div class="case-study-text">
+        <p><span class="todo">[Add: How did you test it, and how did the design change in response?]</span></p>
+      </div>
+      <div class="table-scroll">
+          <table class="case-study-table">
+            <thead><tr><th>Version</th><th>What changed</th><th>Why</th><th>Result</th></tr></thead>
+            <tbody>
+            <tr><td>v1</td><td><span class="todo">[Add: change]</span></td><td><span class="todo">[Add: reason]</span></td><td><span class="todo">[Add: result]</span></td></tr>
+            <tr><td>v2</td><td><span class="todo">[Add: change]</span></td><td><span class="todo">[Add: reason]</span></td><td><span class="todo">[Add: result]</span></td></tr>
+            <tr><td>v3</td><td><span class="todo">[Add: change]</span></td><td><span class="todo">[Add: reason]</span></td><td><span class="todo">[Add: result]</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      <figure class="photo-slot is-small" style="--frame-shape: 16 / 9">
+        <div class="photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-camera"/></svg>
+          <span class="placeholder-label">Test photo or chart</span>
+          <span class="placeholder-filename">photos/case-study-test.jpg</span>
+        </div>
+        <img src="photos/case-study-test.jpg" alt="Project: test results" loading="lazy" onerror="this.remove()">
+      </figure>
+    </div>
+  </section>
+
+  <div class="container"><div class="section-divider">09.500</div></div>
+
+  <!-- ========================================================================
+       SECTION 07: RESULTS
+       What to write: how it performed against your goals, with numbers. The three plates hold your headline numbers.
+       ======================================================================== -->
+  <section class="section slide-in" id="results">
+    <div class="container">
+      <div class="section-label">07 · Results</div>
+      <h2>Results</h2>
+      <div class="stat-row three-up">
+          <div class="stat-plate"><div class="stat-number"><span class="todo">[Add: number]</span></div><div class="stat-label"><span class="todo">[Add: what it measures]</span></div></div>
+          <div class="stat-plate"><div class="stat-number"><span class="todo">[Add: number]</span></div><div class="stat-label"><span class="todo">[Add: what it measures]</span></div></div>
+          <div class="stat-plate"><div class="stat-number"><span class="todo">[Add: number]</span></div><div class="stat-label"><span class="todo">[Add: what it measures]</span></div></div>
+        </div>
+      <div class="case-study-text">
+        <p><span class="todo">[Add: How did it perform against your goals? Be specific and honest.]</span></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="section-divider">11.000</div></div>
+
+  <!-- ========================================================================
+       SECTION 08: REFLECTION
+       What to write: what went wrong, what you would change, and what you learned. The tags list the skills you used.
+       ======================================================================== -->
+  <section class="section slide-in" id="reflection">
+    <div class="container">
+      <div class="section-label">08 · Reflection</div>
+      <h2>Reflection</h2>
+      <div class="info-grid">
+          <div class="info-block"><h4>What went wrong</h4><p><span class="todo">[Add: a real problem and how you handled it]</span></p></div>
+          <div class="info-block"><h4>What I would change</h4><p><span class="todo">[Add: what you would do differently]</span></p></div>
+          <div class="info-block"><h4>What I learned</h4><p><span class="todo">[Add: skills and lessons you would use again]</span></p></div>
+        </div>
+      <div class="spacer"></div>
+      <div class="tag-row"><span class="tag">Skill 1</span><span class="tag">Skill 2</span><span class="tag">Skill 3</span></div>
+      <div class="spacer"></div>
+      <a class="btn btn-ghost" href="index.html#projects">← Back to projects</a>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- ==========================================================================
+     FOOTER (same as the home page)
+     ========================================================================== -->
+<footer class="footer">
+  <div class="container">
+
+    <div class="revision-table" role="group" aria-label="Revision history">
+      <div class="revision-row revision-heading"><span>REV</span><span>DATE</span><span>NOTE</span></div>
+      <div class="revision-row"><span>E</span><span>Oct 2026</span><span>Nameplate, revision stamp, revision block</span></div>
+      <div class="revision-row"><span>D</span><span>Oct 2026</span><span>Education and contact moved to the top</span></div>
+      <div class="revision-row"><span>C</span><span>Oct 2026</span><span>Leadership, skills, photo frames</span></div>
+      <div class="revision-row"><span>B</span><span>Oct 2026</span><span>Updated from 2027 resume</span></div>
+      <div class="revision-row"><span>A</span><span>Oct 2026</span><span>First release</span></div>
+    </div>
+
+    <div class="footer-line">
+      <span>ANNA LU — MECHANICAL ENGINEERING PORTFOLIO</span>
+      <span>SHEET 1/1 · REV E · <span id="footer-year"></span></span>
+    </div>
+
+  </div>
+</footer>
+
+<script src="site.js" defer></script>
+
+</body>
+</html>

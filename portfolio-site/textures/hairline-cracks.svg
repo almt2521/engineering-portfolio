@@ -1,0 +1,18 @@
+<!--
+  HAIRLINE CRACKS. A few thin cracks on the wall. Each has a dark line and a light line just below it.
+
+  HOW IT IS USED: style.css lists this file in the "TEXTURES" section near the top,
+  and layers it on the wall, panels, and dark stone. It is a picture the browser draws,
+  so there is nothing here you need to edit. To make a texture stronger or weaker,
+  change its size or blending in style.css instead of editing this file.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640">
+<path d="M130.0 30.0 L134.1 44.4 L145.2 52.3 L159.0 54.0 L168.1 55.2 L185.8 55.6 L200.7 50.7 L213.3 47.4 L227.4 40.1 L232.1 29.7 L239.9 19.9 L250.5 12.1 L255.1 2.8 L263.8 -6.1 L273.6 -14.2 L288.4 -18.8 L301.8 -25.0" transform="translate(1.2 1.2)" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1" stroke-linejoin="round"/>
+<path d="M130.0 30.0 L134.1 44.4 L145.2 52.3 L159.0 54.0 L168.1 55.2 L185.8 55.6 L200.7 50.7 L213.3 47.4 L227.4 40.1 L232.1 29.7 L239.9 19.9 L250.5 12.1 L255.1 2.8 L263.8 -6.1 L273.6 -14.2 L288.4 -18.8 L301.8 -25.0" fill="none" stroke="rgba(10,10,8,0.6)" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M213.3 47.4 L206.3 59.1 L202.3 72.7 L202.6 80.3 L200.2 92.8 L194.6 104.4 L186.6 113.4 L172.5 119.2" transform="translate(1.2 1.2)" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1" stroke-linejoin="round"/>
+<path d="M213.3 47.4 L206.3 59.1 L202.3 72.7 L202.6 80.3 L200.2 92.8 L194.6 104.4 L186.6 113.4 L172.5 119.2" fill="none" stroke="rgba(10,10,8,0.6)" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M700.0 360.0 L694.1 375.2 L678.5 389.7 L671.1 405.3 L670.9 417.0 L675.1 434.8 L684.4 444.8 L688.7 458.9 L696.0 477.7 L695.4 492.6 L697.7 514.3 L703.3 525.4 L714.6 537.5 L722.9 544.9 L738.6 552.9" transform="translate(1.2 1.2)" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1" stroke-linejoin="round"/>
+<path d="M700.0 360.0 L694.1 375.2 L678.5 389.7 L671.1 405.3 L670.9 417.0 L675.1 434.8 L684.4 444.8 L688.7 458.9 L696.0 477.7 L695.4 492.6 L697.7 514.3 L703.3 525.4 L714.6 537.5 L722.9 544.9 L738.6 552.9" fill="none" stroke="rgba(10,10,8,0.6)" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M675.1 434.8 L678.2 447.5 L678.7 463.3 L675.0 477.8 L673.7 485.9 L671.6 493.4 L672.1 503.9" transform="translate(1.2 1.2)" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1" stroke-linejoin="round"/>
+<path d="M675.1 434.8 L678.2 447.5 L678.7 463.3 L675.0 477.8 L673.7 485.9 L671.6 493.4 L672.1 503.9" fill="none" stroke="rgba(10,10,8,0.6)" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<!-- DRAFT: the dashed [Add: ...] prompts need your real details. Search this file for class="todo". Remove the banner and the noindex line in <head> when you publish. -->
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Text shown on the browser tab and in search results -->
+  <title>Cement boat design — Anna Lu</title>
+  <meta name="description" content="A first-year team project to design and build a cement boat that floats, tracks straight, and moves fast.">
+
+  <!-- noindex tells search engines NOT to list this page. Delete this line when the page is finished and you want it findable. -->
+  <meta name="robots" content="noindex">
+
+  <!-- Fonts and styles: the same files the home page uses -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- ICONS: drawn once here (invisible), reused by the photo frames -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="icon-camera" viewBox="0 0 24 24"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+</svg>
+
+
+<!-- ==========================================================================
+     NAVIGATION BAR (links back to the home page)
+     ========================================================================== -->
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="nav-logo"><span class="nav-logo-box">AL</span> ANNA LU</a>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+
+<!-- ==========================================================================
+     TOP OF THE CASE STUDY
+     Back link, draft banner, tag, title, one-line summary, an info plate of
+     quick facts, and the main photo.
+     ========================================================================== -->
+<header class="hero case-study-hero slide-in" id="top">
+  <div class="container">
+
+    <a class="back-link" href="index.html#projects">← Back to projects</a>
+
+    <!-- Delete this banner when the page is finished -->
+    <div class="todo-banner">Draft: replace each highlighted prompt with your real details, then delete this banner and the noindex line in the page head.</div>
+
+    <div class="hero-tag">Case study · First-year design project · 2024</div>
+    <h1>Cement boat design</h1>
+    <p class="hero-intro">A team project to design and build a cement boat that floats, holds a straight line, and moves as fast as possible.</p>
+
+    <!-- INFO PLATE: each info-cell has a small label and a value.
+         Edit the values; keep eight cells so the grid stays even. -->
+    <div class="info-plate">
+        <div class="info-cell"><div class="info-label">Role</div><div class="info-value"><span class="todo">[Add: your role on the team]</span></div></div>
+        <div class="info-cell"><div class="info-label">Team</div><div class="info-value"><span class="todo">[Add: team size]</span></div></div>
+        <div class="info-cell"><div class="info-label">Timeframe</div><div class="info-value">2024</div></div>
+        <div class="info-cell"><div class="info-label">Context</div><div class="info-value">First-year design project, Drexel</div></div>
+        <div class="info-cell"><div class="info-label">Tools</div><div class="info-value"><span class="todo">[Add: CAD, molding materials, test setup]</span></div></div>
+        <div class="info-cell"><div class="info-label">Skills</div><div class="info-value">Hull design, mold design, propulsion, testing</div></div>
+        <div class="info-cell"><div class="info-label">Status</div><div class="info-value">Completed</div></div>
+        <div class="info-cell"><div class="info-label">Outcome</div><div class="info-value"><span class="todo">[Add: one-line result]</span></div></div>
+    </div>
+
+    <!-- MAIN PHOTO: save as photos/cement-boat-hero.jpg -->
+    <figure class="photo-slot" style="--frame-shape: 16 / 9">
+      <div class="photo-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-camera"/></svg>
+        <span class="placeholder-label">Hero photo</span>
+        <span class="placeholder-filename">photos/cement-boat-hero.jpg</span>
+      </div>
+      <img src="photos/cement-boat-hero.jpg" alt="Cement boat, finished" loading="lazy" onerror="this.remove()">
+    </figure>
+
+  </div>
+</header>
+
+
+<main>
+
+  <!-- ========================================================================
+       SECTION 01: PROBLEM
+       What to write: what needed solving, for whom, and what the goals were. Two or three sentences plus 3 goals.
+       ======================================================================== -->
+  <section class="section slide-in" id="problem">
+    <div class="container">
+      <div class="section-label">01 · Problem</div>
+      <h2>The problem</h2>
+      <div class="case-study-text">
+        <p>The assignment was to design and build, as a group, a cement boat that floats in water. Beyond floating, we wanted it to move as straight and as fast as possible.</p>
+        <h3>Goals</h3>
+        <ul>
+            <li>Float in water</li>
+            <li>Move in as straight a line as possible</li>
+            <li>Move as fast as possible, which meant keeping the boat relatively light</li>
+            <li><span class="todo">[Add: a measurable target if you had one, such as a distance or time]</span></li>
+          </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="section-divider">02.000</div></div>
+
+  <!-- ========================================================================
+       SECTION 02: CONSTRAINTS
+       What to write: what limited your design (mass, cost, materials, time, tools, safety). The table pairs each requirement with a target and a reason.
+       ======================================================================== -->
+  <section class="section slide-in" id="constraints">
+    <div class="container">
+      <div class="section-label">02 · Constraints</div>
+      <h2>Constraints and requirements</h2>
+      <div class="case-study-text">
+        <p>Speed was a goal, so the boat had to be relatively light. <span class="todo">[Add: other constraints: required materials, size limits, time, budget, how the boat was powered and tested]</span></p>
+      </div>
+      <div class="table-scroll">
+          <table class="case-study-table">
+            <thead><tr><th>Requirement</th><th>Target</th><th>Why it matters</th></tr></thead>
+            <tbody>
+            <tr><td>Floats</td><td><span class="todo">[Add: target, for example how high it sits or what it carries]</span></td><td>The basic requirement</td></tr>
+            <tr><td>Tracks straight</td><td><span class="todo">[Add: how it was measured]</span></td><td>A boat that veers loses time and distance</td></tr>
+            <tr><td>Fast</td><td><span class="todo">[Add: target, or how speed was measured]</span></td><td>Speed was a goal, so the boat had to be relatively light</td></tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="section-divider">03.500</div></div>
+
+  <!-- ========================================================================
+       SECTION 03: RESEARCH
+       What to write: what you researched and the options you compared before choosing. Add a row to the table for each option.
+       ======================================================================== -->
+  <section class="section slide-in" id="research">
+    <div class="container">
+      <div class="section-label">03 · Research</div>
+      <h2>Research and concepts</h2>
+      <div class="case-study-text">
+        <p>We researched which hull shape would best float, hold a straight line, and move quickly. <span class="todo">[Add: what you learned and the shapes you compared]</span></p>
+      </div>
+      <div class="table-scroll">
+          <table class="case-study-table">
+            <thead><tr><th>Option</th><th>Pros</th><th>Cons</th><th>Decision</th></tr></thead>
+            <tbody>
+            <tr><td><span class="todo">[Add: Hull shape A]</span></td><td><span class="todo">[Add: pros]</span></td><td><span class="todo">[Add: cons]</span></td><td><span class="todo">[Add: chosen or rejected, and why]</span></td></tr>
+            <tr><td><span class="todo">[Add: Hull shape B]</span></td><td><span class="todo">[Add: pros]</span></td><td><span class="todo">[Add: cons]</span></td><td><span class="todo">[Add: chosen or rejected, and why]</span></td></tr>
+            <tr><td><span class="todo">[Add: Hull shape C]</span></td><td><span class="todo">[Add: pros]</span></td><td><span class="todo">[Add: cons]</span></td><td><span class="todo">[Add: chosen or rejected, and why]</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="section-divider">05.000</div></div>
+
+  <!-- ========================================================================
+       SECTION 04: DESIGN
+       What to write: your 3 biggest design decisions and why you made them. Add CAD screenshots, sketches, or renders in the photo row.
+       ======================================================================== -->
+  <section class="section slide-in" id="design">
+    <div class="container">
+      <div class="section-label">04 · Design</div>
+      <h2>Design</h2>
+      <div class="info-grid">
+          <div class="info-block"><h4>Hull shape</h4><p><span class="todo">[Add: the shape you chose and why]</span></p></div>
+          <div class="info-block"><h4>Mold</h4><p>We came up with ideas and planned how to make the mold. <span class="todo">[Add: how the mold was built and why it was designed that way]</span></p></div>
+          <div class="info-block"><h4>Propeller system</h4><p>We worked out a propeller system to make the boat move. <span class="todo">[Add: how it was powered and mounted]</span></p></div>
+        </div>
+      <div class="spacer"></div>
+      <div class="photo-row">
+          <figure class="photo-slot" style="--frame-shape: 4 / 3">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-camera"/></svg>
+              <span class="placeholder-label">CAD or sketch</span>
+              <span class="placeholder-filename">photos/cement-boat-design-1.jpg</span>
+            </div>
+            <img src="photos/cement-boat-design-1.jpg" alt="Cement boat: design 1" loading="lazy" onerror="this.remove()">
+          </figure>
+          <figure class="photo-slot" style="--frame-shape: 4 / 3">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-camera"/></svg>
+              <span class="placeholder-label">CAD or sketch</span>
+              <span class="placeholder-filename">photos/cement-boat-design-2.jpg</span>
+            </div>
+            <img src="photos/cement-boat-design-2.jpg" alt="Cement boat: design 2" loading="lazy" onerror="this.remove()">
+          </figure>
+          <figure class="photo-slot" style="--frame-shape: 4 / 3">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-camera"/></svg>
+              <span class="placeholder-label">CAD or sketch</span>
+              <span class="placeholder-filename">photos/cement-boat-design-3.jpg</span>
+            </div>
+            <img src="photos/cement-boat-design-3.jpg" alt="Cement boat: design 3" loading="lazy" onerror="this.remove()">
+          </figure>
+        </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="section-divider">06.500</div></div>
+
+  <!-- ========================================================================
+       SECTION 05: BUILD
+       What to write: how you made it, in four steps, plus anything that went differently than planned. Add photos of the process.
+       ======================================================================== -->
+  <section class="section slide-in" id="build">
+    <div class="container">
+      <div class="section-label">05 · Build</div>
+      <h2>Build</h2>
+      <div class="case-study-text">
+        <p>After designing it, we built the boat. <span class="todo">[Add: how the build went: mixing and pouring, curing time, problems with the mold]</span></p>
+      </div>
+      <ol class="step-list">
+          <li><strong>Make the mold</strong><span><span class="todo">[Add: what you did]</span></span></li>
+          <li><strong>Cast the hull</strong><span><span class="todo">[Add: what you did]</span></span></li>
+          <li><strong>Add propulsion</strong><span><span class="todo">[Add: what you did]</span></span></li>
+          <li><strong>Test it</strong><span><span class="todo">[Add: what you did]</span></span></li>
+        </ol>
+      <div class="spacer"></div>
+      <div class="photo-row">
+          <figure class="photo-slot" style="--frame-shape: 4 / 3">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-camera"/></svg>
+              <span class="placeholder-label">Build photo</span>
+              <span class="placeholder-filename">photos/cement-boat-build-1.jpg</span>
+            </div>
+            <img src="photos/cement-boat-build-1.jpg" alt="Cement boat: build 1" loading="lazy" onerror="this.remove()">
+          </figure>
+          <figure class="photo-slot" style="--frame-shape: 4 / 3">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-camera"/></svg>
+              <span class="placeholder-label">Build photo</span>
+              <span class="placeholder-filename">photos/cement-boat-build-2.jpg</span>
+            </div>
+            <img src="photos/cement-boat-build-2.jpg" alt="Cement boat: build 2" loading="lazy" onerror="this.remove()">
+          </figure>
+          <figure class="photo-slot" style="--frame-shape: 4 / 3">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-camera"/></svg>
+              <span class="placeholder-label">Build photo</span>
+              <span class="placeholder-filename">photos/cement-boat-build-3.jpg</span>
+            </div>
+            <img src="photos/cement-boat-build-3.jpg" alt="Cement boat: build 3" loading="lazy" onerror="this.remove()">
+          </figure>
+        </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="section-divider">08.000</div></div>
+
+  <!-- ========================================================================
+       SECTION 06: TESTING
+       What to write: how you tested it and how the design changed because of the results. One table row per version.
+       ======================================================================== -->
+  <section class="section slide-in" id="testing">
+    <div class="container">
+      <div class="section-label">06 · Testing</div>
+      <h2>Testing and iteration</h2>
+      <div class="case-study-text">
+        <p>After building it, we continuously tested the boat and changed the model to make it better. <span class="todo">[Add: how you tested it and what you measured]</span></p>
+      </div>
+      <div class="table-scroll">
+          <table class="case-study-table">
+            <thead><tr><th>Version</th><th>What changed</th><th>Why</th><th>Result</th></tr></thead>
+            <tbody>
+            <tr><td>v1</td><td><span class="todo">[Add: change]</span></td><td><span class="todo">[Add: reason]</span></td><td><span class="todo">[Add: result]</span></td></tr>
+            <tr><td>v2</td><td><span class="todo">[Add: change]</span></td><td><span class="todo">[Add: reason]</span></td><td><span class="todo">[Add: result]</span></td></tr>
+            <tr><td>v3</td><td><span class="todo">[Add: change]</span></td><td><span class="todo">[Add: reason]</span></td><td><span class="todo">[Add: result]</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      <figure class="photo-slot is-small" style="--frame-shape: 16 / 9">
+        <div class="photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#icon-camera"/></svg>
+          <span class="placeholder-label">Test photo or chart</span>
+          <span class="placeholder-filename">photos/cement-boat-test.jpg</span>
+        </div>
+        <img src="photos/cement-boat-test.jpg" alt="Cement boat: test results" loading="lazy" onerror="this.remove()">
+      </figure>
+    </div>
+  </section>
+
+  <div class="container"><div class="section-divider">09.500</div></div>
+
+  <!-- ========================================================================
+       SECTION 07: RESULTS
+       What to write: how it performed against your goals, with numbers. The three plates hold your headline numbers.
+       ======================================================================== -->
+  <section class="section slide-in" id="results">
+    <div class="container">
+      <div class="section-label">07 · Results</div>
+      <h2>Results</h2>
+      <div class="stat-row three-up">
+          <div class="stat-plate"><div class="stat-number"><span class="todo">[Add: number]</span></div><div class="stat-label"><span class="todo">[Add: for example, speed or distance]</span></div></div>
+          <div class="stat-plate"><div class="stat-number"><span class="todo">[Add: number]</span></div><div class="stat-label"><span class="todo">[Add: for example, versions built]</span></div></div>
+          <div class="stat-plate"><div class="stat-number"><span class="todo">[Add: number]</span></div><div class="stat-label"><span class="todo">[Add: for example, mass]</span></div></div>
+        </div>
+      <div class="case-study-text">
+        <p><span class="todo">[Add: how the boat performed against your goals, honestly]</span></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="section-divider">11.000</div></div>
+
+  <!-- ========================================================================
+       SECTION 08: REFLECTION
+       What to write: what went wrong, what you would change, and what you learned. The tags list the skills you used.
+       ======================================================================== -->
+  <section class="section slide-in" id="reflection">
+    <div class="container">
+      <div class="section-label">08 · Reflection</div>
+      <h2>Reflection</h2>
+      <div class="info-grid">
+          <div class="info-block"><h4>What went wrong</h4><p><span class="todo">[Add: a real problem and how the team handled it]</span></p></div>
+          <div class="info-block"><h4>What I would change</h4><p><span class="todo">[Add: what you would do differently]</span></p></div>
+          <div class="info-block"><h4>What I learned</h4><p><span class="todo">[Add: skills and lessons you would use again]</span></p></div>
+        </div>
+      <div class="spacer"></div>
+      <div class="tag-row"><span class="tag">Hull design</span><span class="tag">Mold design</span><span class="tag">Propulsion</span><span class="tag">Testing and iteration</span><span class="tag">Teamwork</span></div>
+      <div class="spacer"></div>
+      <a class="btn btn-ghost" href="index.html#projects">← Back to projects</a>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- ==========================================================================
+     FOOTER (same as the home page)
+     ========================================================================== -->
+<footer class="footer">
+  <div class="container">
+
+    <div class="revision-table" role="group" aria-label="Revision history">
+      <div class="revision-row revision-heading"><span>REV</span><span>DATE</span><span>NOTE</span></div>
+      <div class="revision-row"><span>E</span><span>Oct 2026</span><span>Nameplate, revision stamp, revision block</span></div>
+      <div class="revision-row"><span>D</span><span>Oct 2026</span><span>Education and contact moved to the top</span></div>
+      <div class="revision-row"><span>C</span><span>Oct 2026</span><span>Leadership, skills, photo frames</span></div>
+      <div class="revision-row"><span>B</span><span>Oct 2026</span><span>Updated from 2027 resume</span></div>
+      <div class="revision-row"><span>A</span><span>Oct 2026</span><span>First release</span></div>
+    </div>
+
+    <div class="footer-line">
+      <span>ANNA LU — MECHANICAL ENGINEERING PORTFOLIO</span>
+      <span>SHEET 1/1 · REV E · <span id="footer-year"></span></span>
+    </div>
+
+  </div>
+</footer>
+
+<script src="site.js" defer></script>
+
+</body>
+</html>
